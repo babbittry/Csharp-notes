@@ -8,17 +8,17 @@
 
 ## 二、认识.NET Framework和.NET Core
 
-.NET是什么
+### .NET是什么
 
- ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg) |
+<img src = "https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image004.jpg" align="center">
 
-.NET和C#的关系,这是初学者最常见的问题
+### .NET和C#的关系,这是初学者最常见的问题
 
-![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)
+![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image005.jpg)
 
 ## 三、Visual Studio 2019的安装与使用
 
-简介
+### 简介
 
 Mirosoft Visual Studio(简称VS)是美国微软公司的开发工具包系列产品。VS是一个基本完整的开发工具集。是编写C#程序或者说.NET程序最常用的开发工具。因其功能强大、简单易用、速度快、只能读
 
@@ -28,11 +28,9 @@ Mirosoft Visual Studio(简称VS)是美国微软公司的开发工具包系列产
 
 2. VS安装，此时需要联网
 
-3. 根据自己的情况选择需要的安装模块，一般选择“ASP.NET开发”、“.NET桌面开发”、“通用Windows平 台开发”、“数据库存储和处理”、“Visual Studio扩展开发”、“.NET Core跨平台开发”
+3. 根据自己的情况选择需要的安装模块，一般选择“ASP.NET开发”、“.NET桌面开发”、“通用Windows平台开发”、“数据库存储和处理”、“Visual Studio扩展开发”、“.NET Core跨平台开发”
 
-4. 点击安装即可
-
-开始创建第一个项目
+4. 点击安装即可开始创建第一个项目
 
  
 
@@ -40,16 +38,15 @@ Mirosoft Visual Studio(简称VS)是美国微软公司的开发工具包系列产
 
 ### cs文件结构
 
+
+
 结构展示
 
+![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image009.jpg)
 
-1. 程序的第一行using System：using关键字用于在程序中包含System命名空间。一个程序一般有多个
+1. 程序的第一行using System：using关键字用于在程序中包含System命名空间。一个程序一般有多个using语句
 
-using语句
-
-2. 下一行是namespace声明。-个namespace是一系列的类。 WebApplication1 命名空间包含了类
-
-Program。
+2. 下一行是namespace声明。-个namespace是一系列的类。 WebApplication1 命名空间包含了类Program。
 
 3. 下一行是class声明。类Program包含了程序使用的数据和方法声明。类-般包含多个方法。 方法定义了类的 行为。在这里，Program类只有一 个Main方法。
 
@@ -61,7 +58,7 @@ Program。
 
 ** C#基本语法
 
-注意:
+**注意:**
 
 - C#大小写敏感的。
 
@@ -75,7 +72,7 @@ C#是一种面向对象的编程语言。在面向对象的程序设计方法中
 
 以人类为例，从人类中诞生出的具体对象“C罗”和“梅西”，同属人类，故俩人类型相同。
 
-#### 关键字
+### 关键字
 
 关键字，是对编译器有特殊意义的预定义保留标示符，它们不能在程序中用作标示符
 
@@ -83,13 +80,11 @@ C#是一种面向对象的编程语言。在面向对象的程序设计方法中
 
 在任何C#程序中的第一条语句都是: using System ;
 
-
-
 using关键字用于在程序中包含命名空间。一个程序可以包含多个using语句。
 
 - class关键字
 
-class关键字用于声明一一个类。
+class关键字用于声明一个类。
 
 - C#的注释方式
 
@@ -113,35 +108,21 @@ class关键字用于声明一一个类。
 
 4. 要做到别人一看就能看懂
 
- 
-
 #### 变量
 
 - 变量是一个供程序存储数据盒子。在C#中，每个变量都有一个特定的类型，不同类型的变量其内存大 小也不尽相同。
-
- 
 
 ## 五、C#语法进阶
 
 **表达式**
 
-- 表达式由操作数(operand)和运算符(operator)构成。运算符的示例包括+、、、/和new。操作数的示  例包括文
+- 表达式由操作数(operand)和运算符(operator)构成。运算符的示例包括+、-、\*、/和new。操作数的示 例包括文本、字段、局部变量和表达式。
 
-本、字段、局部变量和表达式。
+- 当表达式包含多个运算符时，运算符的优先级(precedence)控制各运算符的计算顺序。例如，表达式x+y*z*按*x**+(y*z)计算，因为*运算符的优先级高于+运算符。 
 
-- 当表达式包含多个运算符时，运算符的优先级(precedence)控制各运算符的计算顺序。例如，表达式
+-   (了解)大多数运算符都可以重载(overload)。运算符重载允许指定用户定义的运算符实现来执行运算，这 些运算的操作数中至少有一个，甚至所有操作数都属于用户定义的类类型或结构类型。
 
-x+y*z*按*x*
-
-*+(y*z)计算，因为*运算符的优先级高于+运算符。                                       (了解)大多数运算符都可以重载(overload)。运算符重载允许指定用户定义的运算符实现来执行运算，这 些运算
-
-的操作数中至少有一个，甚至所有操作数都属于用户定义的类类型或结构类型。
-
-- 下表总结了C#简单常用的运算符，并按优先级从高到低的顺序列出各运算符类别。同类别中的运算符 优先级相
-
-同。
-
-
+- 下表总结了C#简单常用的运算符，并按优先级从高到低的顺序列出各运算符类别。同类别中的运算符 优先级相同。
 
 | **类别** | **表达式**      | **说明**                                |
 | -------- | --------------- | --------------------------------------- |
@@ -199,30 +180,13 @@ x+y*z*按*x*
 |      | ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image012.gif) |
 
 
-
-
-
-
-
 ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image013.gif)
 
- 
-
- 
-
- 
-
- 
-
- 
 
 ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image014.gif)**循环语句**
 
- 
-
   for循环     for(int i = 0; i<10;i++ ){     }           while循环while(true){  }           do-while循环do{  }while(true)  
 
- 
 
 **数组**
 
@@ -238,7 +202,6 @@ x+y*z*按*x*
 
 - 在声明初始化有元素的数组时，也可以指定数组大小。
 
- 
 
 |      |                                                              |
 | ---- | ------------------------------------------------------------ |
@@ -246,13 +209,7 @@ x+y*z*按*x*
 
 
 
-
-
-
-
   //声明没有元素的数组     int[] ints = new int[6]     //声明初始化有元素的数组     int[] ints = new int[]{1, 3, 4, 5}     //在声明初始化有元素的数组时，也可以指定数组大小     string[] strings = new int[5]{"H"， “E"， "L"，“L","0"}     通过索引获取数组中的元素。  -  给数组指定长度时，数组准备存放多少元素，长度就设置为多少。     - 用索引获取数组内的元素时，索弓|从0开始获取。     - 所以数组中最大的索引数字，比指定数组长度小1。     //声明初始化有元素的数组  int[] ints = new int[]{1, 3，4，5}  //获取数组中第1个的元素。int i1 = ints[0];  //给数组内的元素赋值ints[0]  = 1  
-
- 
 
 ## 总结提升
 
@@ -452,7 +409,7 @@ params修饰符，而且必须是方法的最后一个参数。
 
  
 
- ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image019.jpg) |
+ ![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image018.jpg) |
 
 
 3.复杂项目，没有固定的套路，难度很大!
@@ -479,7 +436,7 @@ params修饰符，而且必须是方法的最后一个参数。
 
 
 
-![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg)
+![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image020.jpg)
 
  
 
@@ -511,7 +468,7 @@ params修饰符，而且必须是方法的最后一个参数。
 
 
 
-![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg)
+![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image021.jpg)
 
  
 
@@ -526,7 +483,7 @@ params修饰符，而且必须是方法的最后一个参数。
 在程序开发中， 应先有类，再有对象
 
 
- ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg) |
+ ![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image023.jpg) |
 
 
 ## 02.类和对象的关系
@@ -547,7 +504,7 @@ params修饰符，而且必须是方法的最后一个参数。
 
 
 
-![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image025.jpg)
+![](https://gitee.com/babbittry321/blogImages/raw/master/img/clip_image025.jpg)
 
 在程序开发中要设计一个类，通常需要满足以下三个要素:
 
