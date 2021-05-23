@@ -724,15 +724,13 @@ List集台的声明
 
 - List泛型的处指通过允许指定泛型类或方法操作的特定类型，减少了类型强制转换的需要和运行时错误 的可能性，泛型提供了类型安全，但没有增加开销。
 
-## 02. Dictionary字典的使用
+### 02. Dictionary字典的使用
 
 - 在声明Dictionary字典时，需要同事为其声明Dictionary字典内的键与值的类型
 
 - 示例：Dictionary<int, string> dictionary = new Dictionary<int, string>();
 
 键与值可以是任何类型，但是键必须在设置时是唯一的，而值可以不唯一，就好比每个学生的学号必须 是唯一的，而所有的成绩可以不唯一。
-
- 
 
 ​     Dictionary<int, string> dictionary = new Dictionary<int,  string>();  //两种赋值方式  // 方  式 一 ：Add 方 法 赋 值 dictionary.Add(1,  "98 分 "); dictionary.Add(2, "92 分 ");  dictionary.Add(3, "89 分 "); dictionary.Add(1, "88分");//系统会报错  //方式二：索引器赋值  dictionary[1] = "88分";//系统不会报错dictionary[4]  = "99分";  //方式三：对象初始化器  Dictionary<string, string> dictionary2 = new  Dictionary<string, string>()  {  {"A","aa" },  {"B","BB" },  {"C","CC" }  };  
 
