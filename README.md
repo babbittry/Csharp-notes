@@ -621,145 +621,186 @@ public class Person{
 
 ### 01.集合的使用
 
-- 集合与数组比较类似，都用于存放-组值
+- 集合与数组比较类似，都用于存放**一组值**。
 
 #### 1.1 数组的优劣分析
 
-优势
+##### 优势
 
-- 数组在内存中是连续存储的，所以它的索引速度是非常的快，而且赋值与修改元素也很简单。
+- 数组在内存中是**连续存储**的，所以它的索引速度是非常的快，而且赋值与修改元素也很简单。
 
-劣势
+##### 劣势
 
-- 在数组的两个数据间插入数据很麻烦
+- 在数组的两个数据间插入数据很麻烦。
 
-- 在声明数组的时候， 必须同时指明数组的长度，数组的长度过长，会造成内存浪费，数组和长度过短，会造成数据溢出的错误
+- 在声明数组的时候， 必须同时**指明数组的长度**，数组的长度过长，会造成内存浪费，数组和长度过短，会造成数据溢出的错误。
 
-#### 1.2  ArrayList的使用
+#### 1.2  `ArrayList`的使用
 
-- ArrayList是.NET Framework提供的用于数据存储和检索的专用类
+- `ArrayList`是.NET Framework提供的用于数据存储和检索的专用类
+- 它是命名空间`System.Collections`下的一部分
 
-- 它是命名空间System . Collections 下的一部分
+##### `ArrayList`的优势
 
-ArrayList的优势
+- `ArrayList` 的大小是按照其中存储的数据来动态扩充与收缩的
+- 在声明`ArrayList`对象时并不需要指定它的长度
+- `ArrayList`可以很方便的进行数据的添加，插入和移除
 
-- ArrayList 的大小是按照其中存储的数据来动态扩充与收缩的
+```C#
+ArrayList arrayList=new ArrayList();
+arrayList.Add(123);		//将数据新增到集合结尾处
+arrayList.Add("abc");	//将数据新增到集合结尾处
+arrayList[2]=345;     	//修改指定索引的数据
+arrayList.RemoveAT(0);  //移除指定索引处的数据
+arrayList.Remove(123);  //移除内容为123的数据
+arrayList.Insert(0,"hello world");    //再指定索引处插入数据
+```
 
-- 在声明ArrayList 对象时并不需要指定它的长度
+> 从上面示例看，`ArrayList`好像是解决了数组中所有的缺点，那么它应该就是完美的。可是在C#2.0后又会出现了`List`集合，这是为何?
 
-- ![img](file:///C:/Users/h8210/AppData/Local/Temp/msohtmlclip1/01/clip_image027.gif)ArrayList 可以很方便的进行数据的添加，插入和移除
+##### `ArrayList`的劣势
 
-
-​     ArrayList arrayList=new ArrayList();  //将数据新增到集合结尾处arrayList.Add("abc");  arrayList.Add(123);     //修改指定索引的数据arrayList[2]=345;  //移除指定索引处的数据arrayList.RemoveAT(0);  //移除内容为123的数据arrayList.Remove(123);  //再指定索引处插入数据     arrayList.Insert(0,"hello world");  
-
-
-
-从上面示例看，ArrayList好像是解决了数组中所有的缺点，那么它应该就是完美的。可是在C#2.0后又 会出现了
-
-List集合，这是为何?
-
-ArrayList的劣势
-
-- ArrayList再存储数据时时使用object类型进行存储的
-
-- ArrayList不是类型安全的，使用时很可能会出现类型不匹配的错误
-
+- `ArrayList`在存储数据时是使用`object`类型进行存储的
+- `ArrayList`不是类型安全的，使用时很可能会出现类型不匹配的错误
 - 就算都有插入了同一类型的数据，但在使用的时候，我们也需要将它们转化为对应的原类型来处理
-
-- ArrayList 的存储存在装箱和拆箱操作，导致其性能低下
+- `ArrayList`的存储存在**装箱和拆箱**操作，导致其性能低下
 
 #### 1.3 装箱与拆箱的概念
 
-- 装箱就是将比如int类型或者string 等不同的对象通过隐式转换赋给objecy对象。
+- **装箱**就是将比如`int`类型或者`string`等不同的对象通过**隐式转换**赋给`object`对象。
 
-​     int i = 123; object o= 1;  
+```C#
+int i = 123;
+object o= 1;  
+```
 
-- 拆箱就是将object对象通过显示转换赋给int类型的变量
+- **拆箱**就是将`object`对象通过**显示转换**赋给`int`类型的变量
 
- 
+```C#
+object o=123;
+int i = (int)o;  
+```
 
-​     object o=123; int i = (int)o;  
+- 装箱与拆箱的过程会产生较多的 性能损耗。
+- 正是因为`ArrayList`存在不安全类型与装箱拆箱的缺点，所以在C#2.0后出现了**泛型**的概念。
+- 泛型的概念在此先不多做表述，为便于大家记忆，可以简单理解成：限制集合只能够存储**单一类型数据**的一种手段。
 
-- 装箱 与拆箱的过程会产生较多的 性能损耗。
-
-- 正是因为ArrayList 存在不安全类型与装箱拆箱的缺点，所以在C#2.0后出现了泛型的概念。
-
-- 泛型的概念在此先不多做表述，为便于大家记忆，可以简单理解成:限制集合只能够存储单一类型数据 的一种手段
-
-#### 1.4  List集合
+#### 1.4  `List`集合
 
 - 目前我们只需要学习List集合这一 种类型即可，以此为突破口，以后再学习其他集合就会非常容易
 
-List集台的声明
+##### List集台的声明
 
-- List 集合与ArrayList 由于都继承成了相同的接口，故使用与ArrayList 相似。
+- `List` 集合与`ArrayList` 由于都继承成了相同的接口，故使用与`ArrayList` 相似。
 
-- 在声明List集合时，需要同时为其声明List集合内数据的对象类型
+- 在声明`List`集合时，需要同时为其声明`List`集合内数据的**对象类型**
 
-- 示例: List intList = new List()
+- 示例: `List<int> intList = new List();`
 
-所谓接口目前可以简单理解成限制和规定 类型行为即类型方法的一种手段
+所谓**接口**目前可以简单理解成**限制和规定类型行为**即**类型方法**的一种手段
 
+```C#
+List<int> list = new List<int>();   // 第一种初始化方式
+list.Add(123);      // 新增数据到结尾处
+List<int>  intList = new List<int>  // 第二种初始化方式
+{
+    123,
+    456,
+    789
+};
+intList[2] = 345;
+intList.RemoveAt(0);    // 删除指定索引处的数据
+intList.Remove(123);    // 删除内容为123的数据
+intList.Insert(0, 6688);
+```
 
-|      |      |
-| ---- | ---- |
-|      |      |
+上例中如果我们往List集合中插入string宇符"hello world",系统就会报错，且不能通过编译。这样就避免了前面讲的类型安全问题与装箱拆箱的性能问题
 
-上例中如果我们往List集合中插入string宇符"hello   world",系统就会报错，且不能通过编译。这样就避免了前面讲的类型安全问题与装箱拆箱的性能问题
+##### 思考
 
+- 在上一节“类的使用"中我们知道，`int`本身也是一 个类型，`in`t类型声明的变量接受`int`类型的数据， `int`类型可以指定`List`集合的数据类型。那么我们自己创建的类型是否可以限定`List`集合的数据类型呢?
+  - 答案是：可以。
 
-思考
-
-- 在上一节“类的使用"中我们知道，int本身也是一 个类型，int类型声明的变量接受int类型的数据， int
-
-类型可以指定List集合的数据类型。那么我们自己创建的类型是否可以限定List 集合的数据类型呢?
-
-总结
+##### 总结
 
 - 集合与数组比较类似，都用于存放一组值
 
 - 集合中提供了特定的方法能直接操作集合中的数据，并提供了不同的集合类来实现特定的功能
 
-- 简单的说就是数组的升级版。他可以动态的对集合的长度(也就是集合内最大元素的个数)进行定义和维 护
+- 简单的说就是数组的升级版。他可以动态的对集合的长度(也就是集合内最大元素的个数)进行定义和维护
 
-- List泛型的处指通过允许指定泛型类或方法操作的特定类型，减少了类型强制转换的需要和运行时错误 的可能性，泛型提供了类型安全，但没有增加开销。
+- `List`泛型的好处指通过允许指定**泛型类或方法**操作的**特定类型**，减少了类型强制转换的需要和运行时错误的可能性，泛型提供了类型安全，但没有增加开销。
 
-### 02. Dictionary字典的使用
+### 02. `Dictionary`字典的使用
 
-- 在声明Dictionary字典时，需要同事为其声明Dictionary字典内的键与值的类型
+- 在声明`Dictionary`字典时，需要同事为其声明`Dictionary`字典内的键与值的类型
 
-- 示例：Dictionary<int, string> dictionary = new Dictionary<int, string>();
+- 示例：`Dictionary<int, string> dictionary = new Dictionary<int, string>();`
 
-键与值可以是任何类型，但是键必须在设置时是唯一的，而值可以不唯一，就好比每个学生的学号必须 是唯一的，而所有的成绩可以不唯一。
+键与值可以是任何类型，但是键必须在设置时是唯一的，而值可以不唯一，就好比每个学生的学号必须是唯一的，而所有的成绩可以不唯一。
 
-​     Dictionary<int, string> dictionary = new Dictionary<int,  string>();  //两种赋值方式  // 方  式 一 ：Add 方 法 赋 值 dictionary.Add(1,  "98 分 "); dictionary.Add(2, "92 分 ");  dictionary.Add(3, "89 分 "); dictionary.Add(1, "88分");//系统会报错  //方式二：索引器赋值  dictionary[1] = "88分";//系统不会报错dictionary[4]  = "99分";  //方式三：对象初始化器  Dictionary<string, string> dictionary2 = new  Dictionary<string, string>()  {  {"A","aa" },  {"B","BB" },  {"C","CC" }  };  
+```C#
+Dictionary<int, string> dictionary = new Dictionary<int,  string>();
+//两种赋值方式  
+// 方  式 一 ：Add 方 法 赋 值 
+dictionary.Add(1, "98分"); 
+dictionary.Add(2, "92分");  
+dictionary.Add(3, "89分"); 
+dictionary.Add(1, "88分");	//系统会报错  
+//方式二：索引器赋值  
+dictionary[1] = "88分";		//系统不会报错
+dictionary[4]  = "99分";  
+//方式三：对象初始化器  
+Dictionary<string, string> dictionary2 = new  Dictionary<string, string>()  {
+	{"A","aa" },  
+	{"B","BB" },  
+	{"C","CC" }  
+};  
+```
 
-注意dictionary[1]方式既可以赋新值可以修改原来已键有的值，类似于数组索引器的使用。所以可以使  用之前已使用过的键。但是Add方法不可以添加已有键的值。
+注意`dictionary[1]`方式既可以赋新值可以修改原来已键有的值，类似于数组索引器的使用, 所以可以使用之前已使用过的键。但是`Add`方法不可以添加已有键的值。
 
-  //获取键为1的值  //方式一：索引器取值  string value = dictionary[1];  //方式二：foreach遍历取值  foreach (var item in dictionary)  {  string val = item.Value;  }  //移除键为1的键值对dictionary.Remove(1);  
+```C#
+//获取键为1的值  
+//方式一：索引器取值  
+string value = dictionary[1];  
+//方式二：foreach遍历取值  
+foreach (KeyValuePair<string, string> item in dictionary) {  
+    int key  = item.Key; 
+	string value = item.Value;  
+}  
+//移除键为1的键值对
+dictionary.Remove(1);
+```
 
-总结
+#### 总结
 
-- 键与值可以是任何类型，但是键必须在设置时是唯一 的，而值可以不唯一
+- **键**与**值**可以是任何类型，但是键必须在设置时是唯一 的，而值可以不唯一
 
-- 使用Add()方法添加键值对，不可添加已有的键名
+- 使用`Add()`方法添加键值对，不可添加已有的键名
 
-- 索引模式可以新赋值也可以修改已有的键值。
+- 索引模式可以**新赋值**也可以**修改已有的键值**。
 
 
-### 03. foreach的使用
+### 03. `foreach`的使用
 
-- foreach就是传说中的增强for循环或者称作foreach循环
+- `foreach`就是传说中的增强`for`循环或者称作`foreach`循环
 
-- foreach 对遍历字典或集合具备天然优势，效率高过for循环
+- `foreach`对遍历字典或集合具备天然优势，效率高过`for`循环
 
-#### 3.1 foreach操作数组
+#### 3.1 `foreach`操作数组
 
-  int[] ints= {1，2，3，4，5，6}; foreach (int item in ints){  //每次循环，其item都是整型数组中的一个元素  }  
+```c#
+int[] ints= {1，2，3，4，5，6};
+foreach (int item in ints){  //每次循环，其item都是整型数组中的一个元素  } 
+```
 
 #### 3.2 `foreach`操作集合
 
-  List<int> intList = new  List<int>() { 1, 2，3, 4，5, 6 }; foreach (int item in ints){  //每次循环，其item都是List集合中的一个元素  }  
+```C#
+List<int> intList = new  List<int>() { 1, 2，3, 4，5, 6 }; 
+foreach (int item in ints){  //每次循环，其item都是List集合中的一个元素  }
+```
 
 #### 3.3 `foreach`操作字典
 
@@ -768,9 +809,10 @@ Dictionary<string, string> dictionary = new Dictionary<string,  string>() {
     { "A","aa"}, 
     { "B","bb"}, 
     { "C","cc"}，
-};  foreach  (KeyValuePair<string, string> item  in dictionary) 
-    string key  = item.Key; 
-string value =  item.Value; 
+};  
+foreach  (KeyValuePair<int, string> item  in dictionary) {
+    int key  = item.Key; 
+	string value =  item.Value; 
 }  
 ```
 
